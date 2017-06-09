@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="br.com.rededescontostecbiz" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>android</name>
+    <name>Rede de descontos TecBiz</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Rede descontos TecBiz um universo de vanagens para os usuários dos cartões TecBiz!
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="tecnologia@tecbiz.com.br" href="www.tecbiz.com.br">
+        TecBiz TI
     </author>
     <content src="http://www.redededescontostecbiz.com.br/index.php" />
     <preference name="DisallowOverscroll" value="true" />
