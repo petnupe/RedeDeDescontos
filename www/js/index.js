@@ -34,16 +34,35 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+
+        FCMPlugin.getToken(function(token){
+            $.localStorage.set('tokenId', token);
+        });
+
+        FCMPlugin.onNotification(function(data) {
+            navigator.notification.alert(data.title + '\n\n'+ data.body, null, 'Mensagem para você:', 'Ok');
+            /*
+            if(data.wasTapped) {
+              //Notification was received on device tray and tapped by the user.
+              //navigator.notification.alert(data.title + '\n'+ data.body, null, 'Atenção', 'Ok');
+              //alert(data.title + '\n'+ data.body);
+            } else {
+              //Notification was received in foreground. Maybe the user needs to be notified.
+              
+              //navigator.notification.alert(data.title + '\n'+ data.body, null, 'Atenção', 'Ok');
+              //alert(data.title + '\n'+ data.body);
+            }
+           */
+        });
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
     }
 };

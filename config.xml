@@ -1,25 +1,31 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.rededescontostecbiz" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Rede de descontos TecBiz</name>
+<widget id="com.tecbiz.izicartoes" 
+    version="328" 
+    xmlns="http://www.w3.org/ns/widgets" 
+    xmlns:gap="http://phonegap.com/ns/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cdv="http://cordova.apache.org/ns/1.0"
+    >
+    <name>IZI Cartões</name>
     <description>
-        Rede descontos TecBiz um universo de vanagens para os usuários dos cartões TecBiz!
+        Aplicativo para consulta de saldos, extratos e lojas credenciadas.
     </description>
-    <author email="tecnologia@tecbiz.com.br" href="www.tecbiz.com.br">
-        TecBiz TI
+    <author email="tecnologia@tecbiz.com.br" href="http://www.tecbiz.com.br">
+        TecBiz Tecnologia e Negocios
     </author>
-    <content src="http://www.redededescontostecbiz.com.br/index.php" />
+    <content src="index.html" />
+    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-targetSdkVersion" value="28" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
-    <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
+    <preference name="phonegap-version" value="cli-9.0.0" />
     <platform name="android">
-        <icon density="ldpi" src="icon.png" />
-        <icon density="mdpi" src="icon.png" />
-        <icon density="hdpi" src="icon.png" />
-        <icon density="xhdpi" src="icon.png" />
-        <icon density="xxhdpi" src="icon.png" />
-        <icon density="xxxhdpi" src="icon.png" />
+        <icon src="icon.png" />
+        <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
+        <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
+        <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
+        <icon density="xhdpi" src="www/res/icon/android/drawable-xhdpi-icon.png" />
+        <icon density="xxhdpi" src="www/res/icon/android/drawable-xxhdpi-icon.png" />
+        <icon density="xxxhdpi" src="www/res/icon/android/drawable-xxxhdpi-icon.png" />
         <splash density="land-ldpi" src="www/res/screen/android/drawable-land-ldpi-screen.png" />
         <splash density="land-mdpi" src="www/res/screen/android/drawable-land-mdpi-screen.png" />
         <splash density="land-hdpi" src="www/res/screen/android/drawable-land-hdpi-screen.png" />
@@ -34,7 +40,6 @@
         <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <access origin="*" />
-    <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -43,9 +48,17 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <resource-file src="/google-services.json" target="app/google-services.json" />
     </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
+    <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="~2.1.2" />
+    <plugin name="cordova-plugin-fcm" spec="~2.1.2" />
+    <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.4" />
+
+<platform name="android">
+  <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+      <application android:usesCleartextTraffic="true" />
+  </edit-config>
+</platform>
+
 </widget>
